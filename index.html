@@ -142,49 +142,69 @@
     // update year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-  <style id="pfp-canonical-overrides">
-  /* Make page wider on desktop for a broader hero */
-  @media (min-width:1024px){ .container{ max-width:1380px !important; } }
+ <style id="pfp-final-override">
+  /* Wider page so the hero feels broader */
+  @media (min-width:1024px){
+    .container{ max-width:1380px !important; }
+  }
 
-  /* HERO — no black band, no milkiness, readable text */
-  #hero, #hero .hero, .hero-section{
-    position:relative !important; display:flex !important; align-items:center !important;
-    overflow:hidden !important; background:transparent !important; color:#fff !important;
-    height: clamp(220px, 36vh, 360px) !important;  /* sensible height */
-    padding: clamp(14px, 2.2vw, 22px) !important; border-radius:16px !important;
-    margin-bottom: 20px !important; z-index:1 !important;
+  /* HERO: transparent background (no band), crisp image, readable text */
+  #hero .hero{
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    overflow:hidden !important;
+    background:transparent !important;
+    color:#fff !important;
+    height: clamp(240px, 40vh, 360px) !important; /* sensible, visible banner */
+    padding: clamp(14px, 2.2vw, 22px) !important;
+    border-radius:16px !important;
+    margin-bottom:18px !important; /* keep the grid below the hero */
+    z-index:2 !important;
   }
-  /* Background image visible, not washed out */
-  #hero .hero-img, .hero-section .hero-img, #hero picture img{
-    position:absolute !important; inset:0 !important; width:100% !important; height:100% !important;
-    object-fit:cover !important; opacity:.28 !important; filter:none !important; z-index:0 !important;
+  /* Show the blue image (no milkiness) */
+  #hero .hero picture, #hero .hero .hero-img{ z-index:0 !important; }
+  #hero .hero .hero-img{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    opacity:.35 !important;          /* visible, not washed out */
+    filter:none !important;           /* remove darkening filters */
   }
-  /* Subtle readability halo (not a band) */
-  #hero::after, .hero-section::after{
-    content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
-    background: radial-gradient(60% 60% at 20% 30%, rgba(0,0,0,.22), rgba(0,0,0,0) 60%);
-  }
-  #hero .hero-content, .hero-section .hero-content{ position:relative !important; z-index:2 !important; }
+  /* Text stays above */
+  #hero .hero .hero-content{ position:relative !important; z-index:1 !important; }
 
-  /* GRID layout — stack under hero */
-  #grid{ position:relative !important; z-index:3 !important; margin-top:10px !important; }
-  #grid .grid{ display:grid !important; grid-template-columns:1fr !important; gap:14px !important; }
+  /* GRID: sits clearly under the hero */
+  #grid{ position:relative !important; z-index:3 !important; margin-top:6px !important; }
+  #grid .grid{
+    display:grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
   @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr) !important; } }
   @media (min-width:1024px){ #grid .grid{ grid-template-columns:repeat(3,1fr) !important; } }
 
-  /* CARDS — compact, consistent */
+  /* Cards: compact text; clear but not gigantic images */
   #grid .card{ padding:12px !important; border-radius:12px !important; }
   #grid .card h3{ font-size:14px !important; margin:6px 0 2px !important; }
   #grid .card p { font-size:12px !important; margin:0 0 6px !important; }
 
-  /* CARD THUMBS — moderate size so they’re clearly visible but not huge */
-  /* If they still look big, change 220/250/260 down by ~20px */
+  /* Card thumbnails — set consistent heights (no cropping weirdness) */
   #grid .card img{
-    display:block !important; width:100% !important; height: 220px !important;
-    object-fit:cover !important; border-radius:8px !important; 
+    display:block !important;
+    width:100% !important;
+    height: 200px !important;  /* mobile */
+    object-fit: cover !important;
+    border-radius:8px !important;
   }
-  @media (min-width:640px){   #grid .card img{ height: 250px !important; } }
-  @media (min-width:1024px){  #grid .card img{ height: 260px !important; } }
+  @media (min-width:640px){
+    #grid .card img{ height: 240px !important; }  /* tablet */
+  }
+  @media (min-width:1024px){
+    #grid .card img{ height: 280px !important; }  /* desktop */
+  }
 </style>
 
 </body>
