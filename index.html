@@ -142,146 +142,57 @@
     // update year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-  <style id="final-overrides">
-  /* --- FINAL OVERRIDES (forces visible change) --- */
-  /* HERO: -50% */
-  #hero .hero{
-    height: clamp(100px, 18vh, 160px) !important;
-    padding: clamp(8px, 1.5vw, 12px) !important;
-    border-radius: 16px !important;
-    background: #0b1220 !important;
-  }
-  #hero .hero h1{ font-size: clamp(16px, 2.6vw, 22px) !important; margin: 0 0 3px !important; }
-  #hero .hero p { font-size: clamp(12px, 1.6vw, 15px) !important; margin: 0 0 8px !important; }
-
-  /* GRID: 3-up desktop, tiny cards (-75%) */
-  #grid .grid{
-    display:grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
-  }
-  @media (min-width:640px){ #grid .grid{ grid-template-columns: repeat(2,1fr) !important; } }
-  @media (min-width:1024px){ #grid .grid{ grid-template-columns: repeat(3,1fr) !important; } }
-
-  #grid .card{
-    padding: 6px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 12px -6px rgba(2,6,23,.08) !important;
-  }
-  #grid .card h3{ font-size: 12px !important; margin: 4px 0 1px !important; }
-  #grid .card p { font-size: 11px !important; margin: 0 0 6px !important; }
-
-  /* Thumbnails SUPER small */
-  #grid .card img{
-    display:block !important;
-    width:100% !important;
-    height:24px !important;   /* ~25% of the old 100px+ */
-    object-fit:cover !important;
-    border-radius:8px !important;
-  }
-
-  /* Optional: slightly narrower container on desktop for balance */
-  @media (min-width:1024px){
-    .container{ max-width: 860px !important; }
-  }
-</style>
-<style id="force-compact-hero-and-grid">
-  /* HERO: match multiple possible wrappers */
-  #hero, #hero .hero, .hero-section {
-    position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    overflow: hidden !important;
-    height: clamp(110px, 20vh, 170px) !important;   /* ~50% shorter */
-    padding: clamp(10px, 2vw, 16px) !important;
-    border-radius: 16px !important;
-    background: #0b1220 !important;
-    color: #fff !important;
-    margin-bottom: 18px !important;                 /* keep grid clearly below */
-    z-index: 1 !important;                          /* above bg image, below grid */
-  }
-
-  /* Hero background image (regardless of exact markup) */
-  #hero .hero-img, .hero-section .hero-img, #hero picture img {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    opacity: .18 !important;
-    filter: brightness(0.85) !important;
-    z-index: 0 !important;
-  }
-  #hero .hero-content, .hero-section .hero-content { position: relative !important; z-index: 2 !important; }
-
-  /* GRID: ensure it stacks below the hero, not under it */
-  #grid { position: relative !important; z-index: 3 !important; margin-top: 6px !important; }
-  #grid .grid { display: grid !important; grid-template-columns: 1fr !important; gap: 10px !important; }
-  @media (min-width:640px){ #grid .grid{ grid-template-columns: repeat(2,1fr) !important; } }
-  @media (min-width:1024px){ #grid .grid{ grid-template-columns: repeat(3,1fr) !important; } }
-
-  /* Cards: visible size (not microscopic) while still compact */
-  #grid .card { padding: 10px !important; border-radius: 12px !important; }
-  #grid .card h3 { font-size: 13px !important; margin: 6px 0 2px !important; }
-  #grid .card p  { font-size: 12px !important; margin: 0 0 6px !important; }
-
-  /* Thumbnails: compact but clearly visible */
-  #grid .card img{
-    display: block !important;
-    width: 100% !important;
-    height: 88px !important;         /* adjust here if you want smaller/larger */
-    object-fit: cover !important;
-    border-radius: 8px !important;
-  }
-  @media (min-width:1024px){
-    #grid .card img{ height: 76px !important; }    /* desktop a bit tighter */
-  }
-</style>
-<style id="tune-1021e">
-  /* +15% wider page on desktop (was 1200px) */
+  
+<style id="tune-1021f">
+  /* Make the page a bit wider on desktop so the hero feels broader */
   @media (min-width:1024px){
     .container{ max-width:1380px !important; }
   }
 
-  /* HERO: +15% taller */
+  /* HERO: remove black band + show your blue image */
   #hero, #hero .hero, .hero-section{
-    height: clamp(207px, 38vh, 345px) !important;  /* was 180/33vh/300 */
-    padding: clamp(14px, 2.5vw, 22px) !important;
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    overflow:hidden !important;
+    background: transparent !important; /* <- no black band */
+    color:#fff !important;
+    margin-bottom: 20px !important;
+    z-index:1 !important;
   }
-  /* keep background image visible and not washed out */
+
+  /* HERO background image: brighter + THREE TIMES wider */
   #hero .hero-img, .hero-section .hero-img, #hero picture img{
-    opacity:.24 !important;
-    filter:brightness(0.9) !important;
+    position:absolute !important;
+    top:0 !important; left:50% !important;
+    height:100% !important;
+    width:300% !important;                  /* 3x the current width */
+    transform: translateX(-50%) !important; /* keep it centered */
+    object-fit:cover !important;
+    opacity:.38 !important;                 /* show the blue more */
+    filter:none !important;                 /* remove darkening */
+    z-index:0 !important;
+  }
+  #hero .hero-content, .hero-section .hero-content{
+    position:relative !important; z-index:2 !important;
   }
 
-  /* GRID stays under hero, 3-up desktop */
+  /* Ensure grid is clearly below hero */
   #grid{ position:relative !important; z-index:3 !important; margin-top:10px !important; }
-  #grid .grid{
-    display:grid !important;
-    grid-template-columns:1fr !important;
-    gap:14px !important;
-  }
-  @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr) !important; } }
-  @media (min-width:1024px){ #grid .grid{ grid-template-columns:repeat(3,1fr) !important; } }
 
-  /* Cards: same text sizing, just bigger images */
-  #grid .card{ padding:12px !important; border-radius:12px !important; }
-  #grid .card h3{ font-size:13px !important; margin:6px 0 2px !important; }
-  #grid .card p { font-size:12px !important; margin:0 0 6px !important; }
-
-  /* Thumbnails: DOUBLE the previous height */
+  /* CARDS: +10% taller than last setting, width unchanged */
   #grid .card img{
     display:block !important;
     width:100% !important;
-    height: 264px !important;   /* mobile (was 132px) */
-    object-fit:cover !important;
+    height: 290px !important;   /* mobile (was 264) */
+    object-fit: cover !important;
     border-radius:8px !important;
   }
   @media (min-width:640px){
-    #grid .card img{ height: 300px !important; }  /* tablet (was 150px) */
+    #grid .card img{ height: 330px !important; }  /* tablet (was 300) */
   }
   @media (min-width:1024px){
-    #grid .card img{ height: 320px !important; }  /* desktop (was 160px) */
+    #grid .card img{ height: 352px !important; }  /* desktop (was 320) */
   }
 </style>
 
