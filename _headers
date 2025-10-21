@@ -9,3 +9,7 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/* 
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://plausible.io 'unsafe-inline'; connect-src 'self' https://plausible.io https://plausible.events; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline';
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
