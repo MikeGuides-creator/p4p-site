@@ -54,3 +54,35 @@ p{margin:8px 0 0}
 @media (min-width:1024px){
   .hero{height:clamp(320px,38vh,400px)}
 }
+/* === Product grid sizing & layout overrides === */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;      /* mobile: 1 across */
+  gap:14px;
+}
+@media (min-width:640px){
+  .grid{ grid-template-columns:repeat(2,1fr); }  /* tablet: 2 across */
+}
+@media (min-width:1024px){
+  .grid{ grid-template-columns:repeat(3,1fr); }  /* desktop: 3 across */
+  .container{ max-width:960px; }                 /* slightly tighter page width */
+}
+
+.card{ padding:14px; border-radius:14px; }
+.card h3{ font-size:16px; margin:8px 0 4px; }
+.card p{ font-size:14px; margin:0 0 10px; }
+
+/* Force small, consistent thumbnails (ignore HTML inline sizes) */
+.card img{
+  display:block;
+  width:100% !important;
+  height:120px !important;     /* short thumbnail height */
+  object-fit:cover;
+  border-radius:10px;
+}
+@media (min-width:640px){
+  .card img{ height:130px !important; }
+}
+@media (min-width:1024px){
+  .card img{ height:120px !important; } /* keep them compact on desktop */
+}
