@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Pricing for Profit — Free Pricing Calculator & Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/site.css?v=2025-10-21d">
+<link rel="stylesheet" href="/css/site.css?v=2025-10-21h">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Pricing for Profit — Free Pricing Calculator & Guide">
@@ -142,58 +142,49 @@
     // update year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-  
-<style id="tune-1021f">
-  /* Make the page a bit wider on desktop so the hero feels broader */
-  @media (min-width:1024px){
-    .container{ max-width:1380px !important; }
-  }
+  <style id="pfp-canonical-overrides">
+  /* Make page wider on desktop for a broader hero */
+  @media (min-width:1024px){ .container{ max-width:1380px !important; } }
 
-  /* HERO: remove black band + show your blue image */
+  /* HERO — no black band, no milkiness, readable text */
   #hero, #hero .hero, .hero-section{
-    position:relative !important;
-    display:flex !important;
-    align-items:center !important;
-    overflow:hidden !important;
-    background: transparent !important; /* <- no black band */
-    color:#fff !important;
-    margin-bottom: 20px !important;
-    z-index:1 !important;
+    position:relative !important; display:flex !important; align-items:center !important;
+    overflow:hidden !important; background:transparent !important; color:#fff !important;
+    height: clamp(220px, 36vh, 360px) !important;  /* sensible height */
+    padding: clamp(14px, 2.2vw, 22px) !important; border-radius:16px !important;
+    margin-bottom: 20px !important; z-index:1 !important;
   }
-
-  /* HERO background image: brighter + THREE TIMES wider */
+  /* Background image visible, not washed out */
   #hero .hero-img, .hero-section .hero-img, #hero picture img{
-    position:absolute !important;
-    top:0 !important; left:50% !important;
-    height:100% !important;
-    width:300% !important;                  /* 3x the current width */
-    transform: translateX(-50%) !important; /* keep it centered */
-    object-fit:cover !important;
-    opacity:.38 !important;                 /* show the blue more */
-    filter:none !important;                 /* remove darkening */
-    z-index:0 !important;
+    position:absolute !important; inset:0 !important; width:100% !important; height:100% !important;
+    object-fit:cover !important; opacity:.28 !important; filter:none !important; z-index:0 !important;
   }
-  #hero .hero-content, .hero-section .hero-content{
-    position:relative !important; z-index:2 !important;
+  /* Subtle readability halo (not a band) */
+  #hero::after, .hero-section::after{
+    content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
+    background: radial-gradient(60% 60% at 20% 30%, rgba(0,0,0,.22), rgba(0,0,0,0) 60%);
   }
+  #hero .hero-content, .hero-section .hero-content{ position:relative !important; z-index:2 !important; }
 
-  /* Ensure grid is clearly below hero */
+  /* GRID layout — stack under hero */
   #grid{ position:relative !important; z-index:3 !important; margin-top:10px !important; }
+  #grid .grid{ display:grid !important; grid-template-columns:1fr !important; gap:14px !important; }
+  @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr) !important; } }
+  @media (min-width:1024px){ #grid .grid{ grid-template-columns:repeat(3,1fr) !important; } }
 
-  /* CARDS: +10% taller than last setting, width unchanged */
+  /* CARDS — compact, consistent */
+  #grid .card{ padding:12px !important; border-radius:12px !important; }
+  #grid .card h3{ font-size:14px !important; margin:6px 0 2px !important; }
+  #grid .card p { font-size:12px !important; margin:0 0 6px !important; }
+
+  /* CARD THUMBS — moderate size so they’re clearly visible but not huge */
+  /* If they still look big, change 220/250/260 down by ~20px */
   #grid .card img{
-    display:block !important;
-    width:100% !important;
-    height: 290px !important;   /* mobile (was 264) */
-    object-fit: cover !important;
-    border-radius:8px !important;
+    display:block !important; width:100% !important; height: 220px !important;
+    object-fit:cover !important; border-radius:8px !important; 
   }
-  @media (min-width:640px){
-    #grid .card img{ height: 330px !important; }  /* tablet (was 300) */
-  }
-  @media (min-width:1024px){
-    #grid .card img{ height: 352px !important; }  /* desktop (was 320) */
-  }
+  @media (min-width:640px){   #grid .card img{ height: 250px !important; } }
+  @media (min-width:1024px){  #grid .card img{ height: 260px !important; } }
 </style>
 
 </body>
