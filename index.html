@@ -237,6 +237,72 @@
     #grid .card img{ height: 76px !important; }    /* desktop a bit tighter */
   }
 </style>
+<style id="tune-1021d">
+  /* Wider page for a broader hero (~40% wider than before) */
+  @media (min-width:1024px){
+    .container{ max-width:1200px !important; }
+  }
+
+  /* HERO: +66% taller */
+  /* Match any of your hero wrappers and ensure the bg image is visible (not just black) */
+  #hero, #hero .hero, .hero-section{
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    overflow:hidden !important;
+    height: clamp(180px, 33vh, 300px) !important; /* was ~110–170px; now ~66% taller */
+    padding: clamp(12px, 2.2vw, 20px) !important;
+    border-radius:16px !important;
+    background:#0b1220 !important; /* base under the image */
+    color:#fff !important;
+    margin-bottom:20px !important;
+    z-index:1 !important;
+  }
+  /* Make sure the hero image shows and isn’t too faint */
+  #hero .hero-img, .hero-section .hero-img, #hero picture img{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    opacity:.24 !important;                 /* a touch brighter than before */
+    filter:brightness(0.9) !important;
+    z-index:0 !important;
+  }
+  #hero .hero-content, .hero-section .hero-content{
+    position:relative !important; z-index:2 !important;
+  }
+
+  /* GRID: keep it clearly below the hero */
+  #grid{ position:relative !important; z-index:3 !important; margin-top:8px !important; }
+  #grid .grid{
+    display:grid !important;
+    grid-template-columns: 1fr !important;
+    gap:12px !important;
+  }
+  @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr) !important; } }
+  @media (min-width:1024px){ #grid .grid{ grid-template-columns:repeat(3,1fr) !important; } }
+
+  /* CARDS: +66% taller thumbs, fit width */
+  #grid .card{ padding:12px !important; border-radius:12px !important; }
+  #grid .card h3{ font-size:13px !important; margin:6px 0 2px !important; }
+  #grid .card p { font-size:12px !important; margin:0 0 6px !important; }
+
+  /* Thumbnails taller (no fragments), still compact */
+  #grid .card img{
+    display:block !important;
+    width:100% !important;
+    height: 132px !important;   /* mobile */
+    object-fit: cover !important;
+    border-radius:8px !important;
+  }
+  @media (min-width:640px){
+    #grid .card img{ height: 150px !important; }  /* tablet */
+  }
+  @media (min-width:1024px){
+    #grid .card img{ height: 160px !important; }  /* desktop */
+  }
+</style>
 
 </body>
 </html>
