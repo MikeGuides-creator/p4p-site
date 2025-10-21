@@ -31,3 +31,39 @@ p{margin:8px 0 0}
     .hero{ height: clamp(320px, 38vh, 400px); } /* a touch shorter on desktop */
   }
 </style>
+<style>
+  /* --- Hero hard overrides --- */
+  .container{ max-width:980px !important; }
+
+  .hero{
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    background: #0b1220 !important;   /* dark base to avoid white haze */
+    color: #fff !important;
+    height: clamp(280px, 45vh, 420px) !important;  /* shrink */
+    padding: clamp(16px, 3vw, 24px) !important;
+    display: flex !important;
+    align-items: center !important;
+    opacity: 1 !important;            /* in case opacity was applied to .hero by mistake */
+  }
+
+  .hero-img{
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 0 !important;
+    opacity: .18 !important;          /* subtle, not foggy */
+    filter: brightness(0.85) !important; /* gentle darken instead of “haze” */
+  }
+
+  .hero-content{ position: relative !important; z-index: 1 !important; }
+
+  .hero h1{ font-size: clamp(24px, 4vw, 36px) !important; margin: 0 0 6px !important; }
+  .hero p{  font-size: clamp(14px, 2vw, 18px) !important; margin: 0 0 14px !important; color:#cbd5e1 !important; }
+  .cta{ padding:10px 16px !important; border-radius:10px !important; }
+  .trust{ gap:8px !important; margin-top:12px !important; }
+  .trust-item{ padding:8px 10px !important; }
+</style>
