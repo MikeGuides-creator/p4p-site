@@ -136,67 +136,30 @@
     // update year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
- <style id="pfp-final-override-2">
-  /* HERO: no haze, centered content */
+ <style id="pfp-sizing">
+  /* hero stays centered/clean */
   #hero .hero{
-    position:relative !important;
-    display:flex !important;
-    flex-direction:column !important;
-    justify-content:center !important;
-    align-items:center !important;
-    text-align:center !important;
-    overflow:hidden !important;
-    background:transparent !important;   /* no black band */
-    color:#fff !important;
-    padding: clamp(14px, 2.2vw, 22px) !important;
-    border-radius:16px !important;
-    margin-bottom:18px !important;
-    z-index:2 !important;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; background:transparent; color:#fff;
+    height: clamp(240px, 40vh, 360px); padding: clamp(14px,2.2vw,22px); border-radius:16px;
+    margin-bottom:18px; position:relative; overflow:hidden;
   }
-  /* Remove any leftover overlay/gradient from older blocks */
-  #hero::after, #hero .hero::after, .hero-section::after{
-    content:none !important;
-    background:none !important;
-    display:none !important;
-  }
-  /* Background image: fully vivid (no milkiness) */
   #hero .hero .hero-img{
-    position:absolute !important;
-    inset:0 !important;
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover !important;
-    opacity:1 !important;         /* <- no haze */
-    filter:none !important;       /* <- remove darkening */
-    z-index:0 !important;
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:1; filter:none; z-index:0;
   }
-  #hero .hero .hero-content{ position:relative !important; z-index:1 !important; }
-  #hero .hero .trust{ justify-content:center !important; }
 
-  /* GRID: stays below hero, 3-up desktop */
-  #grid{ position:relative !important; z-index:3 !important; margin-top:8px !important; }
-  #grid .grid{
-    display:grid !important;
-    grid-template-columns:1fr !important;
-    gap:14px !important;
-  }
-  @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr) !important; } }
-  @media (min-width:1024px){ #grid .grid{ grid-template-columns:repeat(3,1fr) !important; } }
+  /* grid layout */
+  #grid .grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+  @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1024px){ #grid .grid{ grid-template-columns:repeat(3,1fr); } }
 
-  /* Cards: image height +15% over previous */
+  /* +20% card image height over last setting (was 230/276/322) */
   #grid .card img{
-    display:block !important;
-    width:100% !important;
-    height:230px !important;   /* was 200 */
-    object-fit:cover !important;
-    border-radius:8px !important;
+    display:block; width:100% !important; object-fit:cover; border-radius:8px;
+    height: 276px !important;                   /* mobile */
   }
-  @media (min-width:640px){
-    #grid .card img{ height:276px !important; }  /* was 240 */
-  }
-  @media (min-width:1024px){
-    #grid .card img{ height:322px !important; }  /* was 280 */
-  }
+  @media (min-width:640px){  #grid .card img{ height: 331px !important; } }  /* tablet */
+  @media (min-width:1024px){ #grid .card img{ height: 386px !important; } }  /* desktop */
 </style>
 
 </body>
