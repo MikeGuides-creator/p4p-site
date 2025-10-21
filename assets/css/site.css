@@ -13,3 +13,21 @@ p{margin:8px 0 0}
 .btn-primary{background:var(--brand);color:#fff}
 .btn-primary:hover{opacity:.9}
 .muted{color:var(--muted);border-top:1px solid #e5e7eb;margin-top:32px}
+<style>
+  /* === Hero size + balance tweaks === */
+  .container{max-width:980px} /* tighten page width a bit */
+  .hero{
+    height: clamp(280px, 45vh, 420px);       /* smaller, responsive height */
+    padding: clamp(16px, 3vw, 24px);         /* reduce padding */
+    display:flex; align-items:center;        /* vertically center content */
+  }
+  .hero-img{ opacity: .12; }                 /* calm the background image */
+  .hero h1{ font-size: clamp(24px, 4vw, 36px); margin:0 0 6px; }
+  .hero p{  font-size: clamp(14px, 2vw, 18px); margin:0 0 14px; }
+  .cta{ padding:10px 16px; border-radius:10px; }
+  .trust{ gap:8px; margin-top:12px; }
+  .trust-item{ padding:8px 10px; }
+  @media (min-width: 1024px){
+    .hero{ height: clamp(320px, 38vh, 400px); } /* a touch shorter on desktop */
+  }
+</style>
