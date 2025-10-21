@@ -86,3 +86,42 @@ p{margin:8px 0 0}
 @media (min-width:1024px){
   .card img{ height:120px !important; } /* keep them compact on desktop */
 }
+/* === Ultra-compact hero & cards (final overrides) === */
+.hero{
+  height: clamp(150px, 24vh, 220px) !important;  /* ~50% shorter */
+  padding: clamp(10px, 2vw, 16px) !important;
+}
+.hero h1{ font-size: clamp(18px, 3.2vw, 28px) !important; margin:0 0 4px !important; }
+.hero p { font-size: clamp(12px, 1.8vw, 16px) !important; margin:0 0 10px !important; }
+.trust{ gap:6px !important; }
+.trust-item{ padding:6px 8px !important; font-size:13px !important; }
+
+/* Grid stays 3-up on desktop, tighter spacing */
+.grid{ gap:10px !important; }
+@media (min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr) !important; } }
+@media (min-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr) !important; } }
+
+/* Cards ~30% of prior size */
+.card{ padding:10px !important; border-radius:12px !important; }
+.card h3{ font-size:14px !important; margin:6px 0 2px !important; }
+.card p { font-size:12px !important; margin:0 0 8px !important; }
+
+/* Force very small thumbs (ignores any HTML sizes) */
+.card img{
+  display:block;
+  width:100% !important;
+  height:60px !important;     /* mobile: compact */
+  object-fit:cover !important;
+  border-radius:10px !important;
+}
+@media (min-width:640px){
+  .card img{ height:48px !important; }   /* tablet */
+}
+@media (min-width:1024px){
+  .card img{ height:36px !important; }   /* desktop: ~30% of old 120px */
+}
+
+/* Optional: slightly narrower page for balance */
+@media (min-width:1024px){
+  .container{ max-width:900px !important; }
+}
