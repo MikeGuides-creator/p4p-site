@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Pricing for Profit — Free Pricing Calculator & Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/site.css?v=2025-10-21b">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Pricing for Profit — Free Pricing Calculator & Guide">
@@ -141,5 +142,49 @@
     // update year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+  <style id="final-overrides">
+  /* --- FINAL OVERRIDES (forces visible change) --- */
+  /* HERO: -50% */
+  #hero .hero{
+    height: clamp(100px, 18vh, 160px) !important;
+    padding: clamp(8px, 1.5vw, 12px) !important;
+    border-radius: 16px !important;
+    background: #0b1220 !important;
+  }
+  #hero .hero h1{ font-size: clamp(16px, 2.6vw, 22px) !important; margin: 0 0 3px !important; }
+  #hero .hero p { font-size: clamp(12px, 1.6vw, 15px) !important; margin: 0 0 8px !important; }
+
+  /* GRID: 3-up desktop, tiny cards (-75%) */
+  #grid .grid{
+    display:grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  @media (min-width:640px){ #grid .grid{ grid-template-columns: repeat(2,1fr) !important; } }
+  @media (min-width:1024px){ #grid .grid{ grid-template-columns: repeat(3,1fr) !important; } }
+
+  #grid .card{
+    padding: 6px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px -6px rgba(2,6,23,.08) !important;
+  }
+  #grid .card h3{ font-size: 12px !important; margin: 4px 0 1px !important; }
+  #grid .card p { font-size: 11px !important; margin: 0 0 6px !important; }
+
+  /* Thumbnails SUPER small */
+  #grid .card img{
+    display:block !important;
+    width:100% !important;
+    height:24px !important;   /* ~25% of the old 100px+ */
+    object-fit:cover !important;
+    border-radius:8px !important;
+  }
+
+  /* Optional: slightly narrower container on desktop for balance */
+  @media (min-width:1024px){
+    .container{ max-width: 860px !important; }
+  }
+</style>
+
 </body>
 </html>
