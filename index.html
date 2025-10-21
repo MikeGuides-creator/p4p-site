@@ -185,6 +185,58 @@
     .container{ max-width: 860px !important; }
   }
 </style>
+<style id="force-compact-hero-and-grid">
+  /* HERO: match multiple possible wrappers */
+  #hero, #hero .hero, .hero-section {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    height: clamp(110px, 20vh, 170px) !important;   /* ~50% shorter */
+    padding: clamp(10px, 2vw, 16px) !important;
+    border-radius: 16px !important;
+    background: #0b1220 !important;
+    color: #fff !important;
+    margin-bottom: 18px !important;                 /* keep grid clearly below */
+    z-index: 1 !important;                          /* above bg image, below grid */
+  }
+
+  /* Hero background image (regardless of exact markup) */
+  #hero .hero-img, .hero-section .hero-img, #hero picture img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: .18 !important;
+    filter: brightness(0.85) !important;
+    z-index: 0 !important;
+  }
+  #hero .hero-content, .hero-section .hero-content { position: relative !important; z-index: 2 !important; }
+
+  /* GRID: ensure it stacks below the hero, not under it */
+  #grid { position: relative !important; z-index: 3 !important; margin-top: 6px !important; }
+  #grid .grid { display: grid !important; grid-template-columns: 1fr !important; gap: 10px !important; }
+  @media (min-width:640px){ #grid .grid{ grid-template-columns: repeat(2,1fr) !important; } }
+  @media (min-width:1024px){ #grid .grid{ grid-template-columns: repeat(3,1fr) !important; } }
+
+  /* Cards: visible size (not microscopic) while still compact */
+  #grid .card { padding: 10px !important; border-radius: 12px !important; }
+  #grid .card h3 { font-size: 13px !important; margin: 6px 0 2px !important; }
+  #grid .card p  { font-size: 12px !important; margin: 0 0 6px !important; }
+
+  /* Thumbnails: compact but clearly visible */
+  #grid .card img{
+    display: block !important;
+    width: 100% !important;
+    height: 88px !important;         /* adjust here if you want smaller/larger */
+    object-fit: cover !important;
+    border-radius: 8px !important;
+  }
+  @media (min-width:1024px){
+    #grid .card img{ height: 76px !important; }    /* desktop a bit tighter */
+  }
+</style>
 
 </body>
 </html>
