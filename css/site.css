@@ -38,3 +38,9 @@ h1{ margin:0 0 6px; color:var(--brand) }
 }
 @media (min-width:640px){  #grid .card img{ height:331px; } }  /* tablet */
 @media (min-width:1024px){ #grid .card img{ height:386px; } }  /* desktop */
+#grid .card img{
+  display:block; width:100%; object-fit:cover; border-radius:8px;
+  height:276px;
+}
+@media (min-width:640px){  #grid .card img{ height:331px; } }
+@media (min-width:1024px){ #grid .card img{ height:386px; } }
