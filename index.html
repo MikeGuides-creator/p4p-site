@@ -36,12 +36,13 @@
     <div class="hero">
       <!-- background image (versioned, lowercase) -->
       <picture>
-        <source media="(min-width:1280px)" srcset="/assets/images/hero/hero.v20251012a.1920.png">
-        <source media="(min-width:768px)"  srcset="/assets/images/hero/hero.v20251022a.1280.png">
-        <source media="(min-width:1280px)" srcset="/assets/images/hero/hero.v20251012a.1280.png">
-        <source media="(min-width:1280px)" srcset="/assets/images/hero/hero.v20251012a.960.png">
-        <img class="hero-img" src="/assets/images/hero/hero.v20251022a.1280.png" alt="Halloween Ad">
-      </picture>
+  <!-- Desktop and up -->
+  <source media="(min-width:1280px)" srcset="/assets/images/hero/hero.v20251022a.1920.png">
+  <!-- Tablet -->
+  <source media="(min-width:768px)" srcset="/assets/images/hero/hero.v20251022a.1280.png">
+  <!-- Mobile fallback -->
+  <img class="hero-img" src="/assets/images/hero/hero.v20251022a.960.png" alt="Halloween Ad">
+</picture>
 
         <div class="trust">
           <div class="trust-item"><span class="trust-icon">✓</span><span>No spreadsheet chaos</span></div>
