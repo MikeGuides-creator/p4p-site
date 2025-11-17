@@ -62,3 +62,16 @@ h1{ margin:0 0 6px; color:var(--brand) }
   max-width: 100%;
   height: auto;
 }
+
+/* FINAL hero override – ensure full image is visible */
+#hero,
+#hero .hero,
+#hero .hero picture,
+#hero .hero img.hero-image {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
