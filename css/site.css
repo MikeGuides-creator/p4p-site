@@ -36,6 +36,11 @@ h1{ margin:0 0 6px; color:var(--brand) }
 @media (min-width:1024px){ #grid .card img{ height:386px; } }
 
 /* ===== Hero ===== */
+.hero {
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
 #hero {
   padding: 0;
 }
