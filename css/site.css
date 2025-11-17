@@ -44,3 +44,12 @@ h1{ margin:0 0 6px; color:var(--brand) }
 }
 @media (min-width:640px){  #grid .card img{ height:331px; } }
 @media (min-width:1024px){ #grid .card img{ height:386px; } }
+
+/* Hero image fix */
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
