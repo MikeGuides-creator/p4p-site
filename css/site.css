@@ -15,13 +15,14 @@ h1{ margin:0 0 6px; color:var(--brand) }
 .muted{ color:var(--muted); border-top:1px solid #e5e7eb; margin-top:32px }
 
 /* ===== Hero ===== */
-#hero .hero{
-  position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center;
-  text-align:center; background:transparent; color:#fff;
-  height: clamp(240px, 40vh, 360px); padding:16px; border-radius:16px; margin-bottom:18px; overflow:hidden;
+.hero {
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  /* no fixed height, no clipping */
 }
-#hero .hero .hero-img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:1; filter:none; z-index:0;
+.hero {
+  /* old background styles removed for new inline hero image */
 }
 
 /* ===== Grid (1/2/3 columns) ===== */
