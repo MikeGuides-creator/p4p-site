@@ -14,17 +14,6 @@ h1{ margin:0 0 6px; color:var(--brand) }
 .card{ background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:12px; }
 .muted{ color:var(--muted); border-top:1px solid #e5e7eb; margin-top:32px }
 
-/* ===== Hero ===== */
-.hero {
-  padding: 16px;
-  border-radius: 16px;
-  margin-bottom: 18px;
-  /* no fixed height, no clipping */
-}
-.hero {
-  /* old background styles removed for new inline hero image */
-}
-
 /* ===== Grid (1/2/3 columns) ===== */
 #grid .grid{ display:grid; grid-template-columns:1fr; gap:14px; }
 @media (min-width:640px){  #grid .grid{ grid-template-columns:repeat(2,1fr); } }
@@ -46,15 +35,7 @@ h1{ margin:0 0 6px; color:var(--brand) }
 @media (min-width:640px){  #grid .card img{ height:331px; } }
 @media (min-width:1024px){ #grid .card img{ height:386px; } }
 
-/* Hero image fix */
-.hero-image {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-/* --- Hero image reset & layout --- */
+/* ===== Hero ===== */
 #hero {
   padding: 0;
 }
@@ -64,9 +45,10 @@ h1{ margin:0 0 6px; color:var(--brand) }
   padding: 0;
   width: 100%;
   max-width: 100%;
+  border-radius: 0;
+  background: none;
+  height: auto;
   overflow: visible;
-  background: none;          /* kill old background image if any */
-  height: auto;              /* no fixed height */
 }
 
 #hero .hero picture {
@@ -79,6 +61,4 @@ h1{ margin:0 0 6px; color:var(--brand) }
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: contain;       /* show whole image inside the container */
 }
-
