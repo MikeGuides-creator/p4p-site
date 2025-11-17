@@ -53,3 +53,31 @@ h1{ margin:0 0 6px; color:var(--brand) }
   height: auto;
 }
 
+/* --- Hero image reset & layout --- */
+#hero {
+  padding: 0;
+}
+
+#hero .hero {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  background: none;          /* kill old background image if any */
+  height: auto;              /* no fixed height */
+}
+
+#hero .hero picture {
+  display: block;
+  width: 100%;
+}
+
+#hero .hero img.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;       /* show whole image inside the container */
+}
+
